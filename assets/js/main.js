@@ -19,7 +19,7 @@ function encodeDecode() {
         for (let i = 0; i < arrayText.length; i++) {
             for (let j = 0; j < charSet.length; j++){
                 if (arrayText[i] == charSet[j]) {
-                    let m = (j + Number(Schluessel.value)) % 26
+                    let m = (j + Number(Schluessel.value)) % charSet.length
                     arrayResult.push(charSet[m])
                 }
             }
@@ -29,7 +29,7 @@ function encodeDecode() {
         for (let i = 0; i < arrayText.length; i++) {
             for (let j = 0; j < charSet.length; j++){
                 if (arrayText[i] == charSet[j]) {
-                    let m = (j - Number(Schluessel.value) % 26 + 26) % 26
+                    let m = (j - Number(Schluessel.value) % charSet.length + charSet.length) % charSet.length
                     arrayResult.push(charSet[m])
                 }
             }
