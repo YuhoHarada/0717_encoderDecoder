@@ -1,7 +1,7 @@
 let inputText = document.getElementById("inputText")
 let encode = document.getElementById("encode")
 let result = document.getElementById("result")
-let Schluessel = 3
+let Schluessel = document.getElementById("key")
 
 function encodeDecode() {
     if (inputText.value == "") {
@@ -15,12 +15,12 @@ function encodeDecode() {
     }
     if (encode.checked == true) {
         for (let i = 0; i < arrayText.length; i++) {
-            arrayResult.push(String.fromCharCode(arrayText[i].charCodeAt() + Schluessel))
+            arrayResult.push(String.fromCharCode(arrayText[i].charCodeAt() + Number(Schluessel.value)))
         }
         result.innerHTML = `Result: ${arrayResult.join("").toUpperCase()}`
     } else {
         for (let i = 0; i < arrayText.length; i++) {
-            arrayResult.push(String.fromCharCode(arrayText[i].charCodeAt() - Schluessel))
+            arrayResult.push(String.fromCharCode(arrayText[i].charCodeAt() - Number(Schluessel.value)))
         }
         result.innerHTML = `Result: ${arrayResult.join("").toLowerCase()}`
     }
